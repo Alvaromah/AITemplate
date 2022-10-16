@@ -37,7 +37,7 @@ class ChunkTestCase(unittest.TestCase):
         dim: int = 0,
         input_type="float16",
     ):
-        logging.info(f"{input_shape=}, " f"{chunks=}, " f"{dim=}")
+        logging.info(f"{input_shape}, " f"{chunks}, " f"{dim}")
 
         chunk_op = ops.chunk()
         target = detect_target()
@@ -50,7 +50,7 @@ class ChunkTestCase(unittest.TestCase):
         module = compile_model(Ys, target, "./tmp", "chunk")
 
         for batch_size in input_shape[0]._attrs["values"]:
-            logging.info(f"Testing {batch_size=}")
+            logging.info(f"Testing {batch_size}")
             x_pt = get_random_torch_tensor(
                 [batch_size, *[v.value() for v in input_shape[1:]]], input_type
             )

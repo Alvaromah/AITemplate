@@ -51,7 +51,7 @@ def _sanity_check_concatenate(concat_op: Operator, slice_op: Operator) -> bool:
     ):
         if input_tensor is slice_output_tensor:
             assert input_mask, (
-                f"Expected input_mask to be True at {idx=} for "
+                f"Expected input_mask to be True at {idx} for "
                 f'input_tensor {input_tensor._attrs["name"]} and '
                 f'slice_op {slice_op._attrs["name"]}'
             )

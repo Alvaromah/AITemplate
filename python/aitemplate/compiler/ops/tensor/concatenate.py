@@ -209,7 +209,7 @@ class concatenate(Operator):
 
         assert len(curr_input_accessors) == num_curr_inputs, (
             "expected curr_input_accessors have the same length as num_curr_inputs, "
-            f"but got {len(curr_input_accessors)=}, {num_curr_inputs=}, "
+            f"but got {len(curr_input_accessors)}, {num_curr_inputs}, "
             f'op: {self._attrs["name"]}'
         )
 

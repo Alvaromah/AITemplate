@@ -267,7 +267,7 @@ class group_gemm_rcr(common.gemm):
         ab_alignments = sorted({self._get_ab_alignment(wkl) for wkl in workloads})
         assert 1 == len(
             ab_alignments
-        ), f"ab_alignments should be the same among all workloads, got {ab_alignments=}"
+        ), f"ab_alignments should be the same among all workloads, got {ab_alignments}"
         func_key = "{target}.{op}.filter".format(
             target=target.name(), op=self._attrs["op"]
         )

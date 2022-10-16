@@ -182,7 +182,7 @@ class reshape(_reshape_base):
         if unknown_idx == -1:
             assert (
                 numel == prod
-            ), f"When there is no unknown index, we expect dim products to be equal, got current shape {numel=} != new shape {prod=}"
+            ), f"When there is no unknown index, we expect dim products to be equal, got current shape {numel} != new shape {prod}"
         else:
             # FIXME: note that this RuntimeError rules out some "valid" PyTorch
             # code like:

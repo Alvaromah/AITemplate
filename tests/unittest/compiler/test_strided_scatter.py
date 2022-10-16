@@ -100,8 +100,8 @@ class StridedScatterTestCase(unittest.TestCase):
         test_name,
     ):
         logger.info(
-            f"test_strided_scatter_basic with {input_shapes=}, "
-            f"{start_indices=}, {end_indices=}"
+            f"test_strided_scatter_basic with {input_shapes}, "
+            f"{start_indices}, {end_indices}"
         )
 
         input_tensors = [None] * len(input_shapes)
@@ -192,8 +192,8 @@ class StridedScatterTestCase(unittest.TestCase):
         make_slices=None,
     ):
         logger.info(
-            f"test_strided_scatter_dynamic with {input_shapes=}, "
-            f"{start_indices=}, {end_indices=}"
+            f"test_strided_scatter_dynamic with {input_shapes}, "
+            f"{start_indices}, {end_indices}"
         )
 
         input_tensors = [None] * len(input_shapes)
@@ -434,8 +434,8 @@ class StridedScatterTestCase(unittest.TestCase):
     ):
         # make a graph with 1 gemm_rcr_bias + 1 elemwise + multiple slices -> cat
         logger.info(
-            f"test_strided_scatter_input_masks with {input_shapes=}, "
-            f"{start_indices=}, {end_indices=}"
+            f"test_strided_scatter_input_masks with {input_shapes}, "
+            f"{start_indices}, {end_indices}"
         )
 
         input_A_name = "input_a"
@@ -576,7 +576,7 @@ class StridedScatterTestCase(unittest.TestCase):
         scatter_dim,
         test_name,
     ):
-        logger.info(f"test_strided_scatter_basic with {start_indices=}, {end_indices=}")
+        logger.info(f"test_strided_scatter_basic with {start_indices}, {end_indices}")
 
         input_name_0 = "input_0"
         input_0 = self._make_tensor(input_shape_0, input_name_0)
@@ -658,7 +658,7 @@ class StridedScatterTestCase(unittest.TestCase):
     ):
         # make a graph with 2 elemwise + 3 slices where 1 elemwise is sliced twice
         logger.info(
-            f"test_strided_scatter_input_masks {start_indices=}, {end_indices=}"
+            f"test_strided_scatter_input_masks {start_indices}, {end_indices}"
         )
 
         add_0_input_name_0 = "add_0_input_0"
@@ -766,7 +766,7 @@ class StridedScatterTestCase(unittest.TestCase):
         test_name,
     ):
         logger.info(
-            f"test_strided_scatter_with_split with {start_indices=}, {end_indices=}"
+            f"test_strided_scatter_with_split with {start_indices}, {end_indices}"
         )
 
         # make add

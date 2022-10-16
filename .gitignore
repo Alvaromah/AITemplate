@@ -141,3 +141,4 @@ tags
 
 # vim temp files
 *.swp
+/.vs

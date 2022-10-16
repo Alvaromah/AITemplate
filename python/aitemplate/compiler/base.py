@@ -529,7 +529,7 @@ class Tensor(Node):
         """
         if self.src_ops():
             raise ValueError(
-                f"Cannot bind tensor {self._attrs['name']}; {len(self.src_ops())=} > 0"
+                f"Cannot bind tensor {self._attrs['name']}; {len(self.src_ops())} > 0"
             )
         dtype = self._attrs["dtype"]
         if not data.is_dtype(dtype):
@@ -541,7 +541,7 @@ class Tensor(Node):
             raise ValueError(
                 (
                     "ConstantTensor's maximum size is not equal to len(data)! "
-                    f"Got {len(data)=}, but expected at least {tensor_size} bytes. "
+                    f"Got {len(data)}, but expected at least {tensor_size} bytes. "
                     "Check that the ConstantTensor's size and dtype are correct."
                 )
             )

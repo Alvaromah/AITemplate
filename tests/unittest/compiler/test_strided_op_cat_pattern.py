@@ -993,7 +993,7 @@ class StridedOpCatPatternTestCase(unittest.TestCase):
         elif "rrr" in bmm_op_kind:
             w_shape = [B, K, N]
         else:
-            assert 0, f"unsupported {bmm_op_kind=}"
+            assert 0, f"unsupported {bmm_op_kind}"
 
         W = Tensor(
             shape=w_shape,

@@ -663,7 +663,7 @@ def get_group_gemm_instance_template_params(op_def: str) -> List[str]:
     gemm_universal_params = [param.strip(",") for param in gemm_universal_params]
     assert len(gemm_universal_params) == 20, (
         "expected len(gemm_universal_params) to be 20, but got "
-        "{len(gemm_universal_params)}, {gemm_universal_params=}"
+        "{len(gemm_universal_params)}, {gemm_universal_params}"
     )
     return gemm_universal_params
 
@@ -699,7 +699,7 @@ def update_alignments_in_group_gemm_instance(
     epilogue_curr_align_line = instance_lines[epilogue_align_idx + idx_offset]
     assert epilogue_curr_align == epilogue_curr_align_line.strip(
         " ,"
-    ), f"expected {epilogue_curr_align=} equal to {epilogue_curr_align_line=}"
+    ), f"expected {epilogue_curr_align} equal to {epilogue_curr_align_line}"
     instance_lines[epilogue_align_idx + idx_offset] = epilogue_curr_align_line.replace(
         epilogue_curr_align, str(epilogue_alignment)
     )

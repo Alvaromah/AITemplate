@@ -54,7 +54,7 @@ class GEMMTestCase(unittest.TestCase):
         )
 
         for M in Ms:
-            logging.info(f"Testing {M=}")
+            logging.info(f"Testing {M}")
 
             X_pt = torch.randn(M, K).cuda().half()
             W_pt = torch.randn(N, K).cuda().half()

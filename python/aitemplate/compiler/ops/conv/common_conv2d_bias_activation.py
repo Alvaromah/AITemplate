@@ -75,20 +75,20 @@ class conv2d_bias_activation(conv2d):
     def is_valid_inputs(x: Tensor, w: Tensor, b: Tensor) -> Tuple[bool, str]:
         x_shape = x._attrs["shape"]
         if len(x_shape) != 4:
-            return False, f"x should be 4D: {x_shape=}"
+            return False, f"x should be 4D: {x_shape}"
 
         w_shape = w._attrs["shape"]
         if len(w_shape) != 4:
-            return False, f"w should be 4D: {w_shape=}"
+            return False, f"w should be 4D: {w_shape}"
 
         b_shape = b._attrs["shape"]
         if len(b_shape) != 1:
-            return False, f"b should be 1D: {b_shape=}"
+            return False, f"b should be 1D: {b_shape}"
 
         if b_shape[0] != w_shape[0]:
             return (
                 False,
-                f"out channels in bias does not match: {b_shape[0]=} != {w_shape[0]=}",
+                f"out channels in bias does not match: {b_shape[0]} != {w_shape[0]}",
             )
 
         # No need to check compatibility of x/w. This function is only used

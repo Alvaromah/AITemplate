@@ -122,7 +122,7 @@ def _reshape_tensor(tensor: TorchTensor, shape: List[int]) -> TorchTensor:
     """
     assert tensor.ndim == len(
         shape
-    ), f"Expected output tensor's ndim to match the length of Run()'s return value: {tensor.ndim=} != {len(shape)=}"
+    ), f"Expected output tensor's ndim to match the length of Run()'s return value: {tensor.ndim} != {len(shape)}"
     numel = math.prod(shape)
     new_tensor = tensor.flatten()[:numel]
     return new_tensor.reshape(shape)

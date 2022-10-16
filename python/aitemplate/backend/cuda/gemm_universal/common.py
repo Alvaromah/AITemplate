@@ -479,7 +479,7 @@ def get_gemm_instance_template_params(
     gemm_universal_params = [param.strip(",") for param in gemm_universal_params]
     assert len(gemm_universal_params) == expected_num_params, (
         f"expected len(gemm_universal_params) to be {expected_num_params}, but got "
-        f"{len(gemm_universal_params)}, {gemm_universal_params=}"
+        f"{len(gemm_universal_params)}, {gemm_universal_params}"
     )
     return gemm_universal_params
 
@@ -530,7 +530,7 @@ def update_alignments_in_gemm_instance(
         curr_align_line = instance_lines[align_idx + idx_offset]
         assert curr_align == curr_align_line.strip(
             " ,"
-        ), f"expected {curr_align=} equal to {curr_align_line=}"
+        ), f"expected {curr_align} equal to {curr_align_line}"
         instance_lines[align_idx + idx_offset] = curr_align_line.replace(
             curr_align, str(alignment)
         )

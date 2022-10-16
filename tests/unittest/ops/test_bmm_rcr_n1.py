@@ -51,7 +51,7 @@ class BMMTestCase(unittest.TestCase):
             Y, target, "./tmp", f"bmm_rcr_n1_{use_fp16_acc}_{test_name}"
         )
         for B, M in itertools.product(Bs, Ms):
-            logging.info(f"Testing {B=} {M=}")
+            logging.info(f"Testing {B} {M}")
             X_pt = torch.randn(B, M, K).cuda().half()
             W_pt = torch.randn(B, N, K).cuda().half()
 

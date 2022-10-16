@@ -266,7 +266,7 @@ def groupnorm_gen_profiler(
     for dim_idx in (1, 2, 3):
         assert isinstance(
             shapes[dim_idx], IntImm
-        ), f"groupnorm requires reduction dim {dim_idx=} to be static"
+        ), f"groupnorm requires reduction dim {dim_idx} to be static"
 
     norm_common.gen_profiler(
         func_attrs,
@@ -373,7 +373,7 @@ def groupnorm_gen_function(func_attrs: Dict[str, Any], use_swish: bool = False) 
     for dim_idx in (1, 2, 3):
         assert isinstance(
             shapes[dim_idx], IntImm
-        ), f"groupnorm requires reduction dim {dim_idx=} to be static"
+        ), f"groupnorm requires reduction dim {dim_idx} to be static"
 
     return gen_function(
         func_attrs,

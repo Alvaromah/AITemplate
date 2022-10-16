@@ -48,16 +48,16 @@ class chunk(split):
 
     def __call__(self, input: Tensor, chunks: int, dim: int = 0) -> List[Tensor]:
         if chunks < 1:
-            raise RuntimeError(f"chunks must be >= 1 but got {chunks=}")
+            raise RuntimeError(f"chunks must be >= 1 but got {chunks}")
         input_shape = input._attrs["shape"]
         input_rank = len(input_shape)
         if input_rank <= 0:
             raise RuntimeError("expected a non-scalar tensor")
         if dim >= input_rank:
-            raise RuntimeError(f"chunk {dim=} expected to be less than {input_rank=}")
+            raise RuntimeError(f"chunk {dim} expected to be less than {input_rank}")
         split_dim_sizes = input_shape[dim]._attrs["values"]
         if len(split_dim_sizes) > 1:
-            raise RuntimeError(f"Not implemented: chunk along dynamic axes {dim=}")
+            raise RuntimeError(f"Not implemented: chunk along dynamic axes {dim}")
         length = split_dim_sizes[0]
         chunk_size = math.ceil(length / chunks)
         full_chunks = math.floor(length / chunk_size)

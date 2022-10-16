@@ -162,7 +162,7 @@ class reduce_base(Operator):
         rank = len(shape_dims)
         assert (
             rank <= num_dims
-        ), f"expected rank <= num_dims, but got {rank=}, {num_dims=}"
+        ), f"expected rank <= num_dims, but got {rank}, {num_dims}"
         # adjust reduction axis
         reduction_axis = num_dims - rank + reduction_axis
         prefix_dims = [1] * (num_dims - rank)
@@ -190,7 +190,7 @@ class reduce_base(Operator):
             # reduction_axis would never be 3. Consequently, we would never
             # invoke contiguous tensor_reduce kernels.
             raise RuntimeError(
-                f"Expected reduction_axis to be within [0, 2], but got {reduction_axis=}"
+                f"Expected reduction_axis to be within [0, 2], but got {reduction_axis}"
             )
         return self._compute_ws_size_strided(
             extent_affine, reduction_axis, vector_length, dtype
