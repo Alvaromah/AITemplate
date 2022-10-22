@@ -37,6 +37,13 @@ from .cache_entry import GemmQueryEntry, GemmRecordEntry
 
 # pylint: disable=C0103,R1711,W0102,W0221,E1120
 
+# < Math Prod
+import operator
+from functools import reduce
+def math_prod(x):
+    return reduce(operator.mul, x)
+# > Math Prod
+
 EXEC_COND_TEMPLATE = jinja2.Template(
     """
 {{indent}}if ({{cond}}) {
@@ -323,8 +330,8 @@ class gemm(Operator):
                 )
         shape_values_dict = {}
         for name, dims in dim_dict.items():
-            min_value = math.prod([dim.lower_bound() for dim in dims])
-            max_value = math.prod([dim.upper_bound() for dim in dims])
+            min_value = math_prod([dim.lower_bound() for dim in dims])
+            max_value = math_prod([dim.upper_bound() for dim in dims])
             shape_values_dict[name] = sorted({min_value, max_value})
 
         self._attrs["exec_path"] = OrderedDict()

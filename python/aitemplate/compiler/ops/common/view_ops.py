@@ -30,6 +30,12 @@ from aitemplate.compiler.base import IntImm, IntVar, IntVarTensor, Operator, Ten
 from ....utils.shape_utils import convert_shape_to_IntVar
 from ....utils.tensor_utils import wrap_dim
 
+# < Math Prod
+import operator
+from functools import reduce
+def math_prod(x):
+    return reduce(operator.mul, x)
+# > Math Prod
 
 # SHAPE_ASSIGNMENT_TEMPLATE is folded in here
 # Only used in generating C++ code
@@ -130,8 +136,8 @@ class _reshape_base(_view):
 
 
 def _is_dynamic_dim_reused(x_shape_values, y_shape_values) -> bool:
-    x_cumulative_static_dim = math.prod(v[0] for v in x_shape_values if 1 == len(v))
-    y_cumulative_static_dim = math.prod(v[0] for v in y_shape_values if 1 == len(v))
+    x_cumulative_static_dim = math_prod(v[0] for v in x_shape_values if 1 == len(v))
+    y_cumulative_static_dim = math_prod(v[0] for v in y_shape_values if 1 == len(v))
     x_count_dynamic_dims = sum(len(v) > 1 for v in x_shape_values)
     y_count_dynamic_dims = sum(len(v) > 1 for v in y_shape_values)
 

@@ -25,6 +25,13 @@ import numpy as np
 
 from aitemplate.utils.torch_utils import torch_dtype_to_string
 
+# < Math Prod
+import operator
+from functools import reduce
+def math_prod(x):
+    return reduce(operator.mul, x)
+# > Math Prod
+
 # Controls how many runtimes will be used in ModelContainer by default.
 # See the runtime README.md for more information on the Model/ModelContainer
 # system and the num_runtimes parameter.
@@ -123,7 +130,7 @@ def _reshape_tensor(tensor: TorchTensor, shape: List[int]) -> TorchTensor:
     assert tensor.ndim == len(
         shape
     ), f"Expected output tensor's ndim to match the length of Run()'s return value: {tensor.ndim} != {len(shape)}"
-    numel = math.prod(shape)
+    numel = math_prod(shape)
     new_tensor = tensor.flatten()[:numel]
     return new_tensor.reshape(shape)
 
